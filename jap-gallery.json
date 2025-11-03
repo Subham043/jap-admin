@@ -1,0 +1,455 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "jap-gallery",
+    "dateExported": "2024-02-28T08:47:16.045Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "88fe62fb-e80e-4235-9ba7-7ccbe1bcac04",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery-category/paginate",
+            "url": "https://server-api.jap.bio/api/v1/gallery-category/paginate",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-28T08:38:08.085Z",
+            "modified": "2024-02-28T08:38:08.085Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "title",
+                        "value": "test",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "category",
+                        "value": "2",
+                        "isDisabled": true
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.33 PM.jpeg",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "7d5e13c6-d2f6-431d-82fb-fa35e7e7c5be",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery-category/create",
+            "url": "https://server-api.jap.bio/api/v1/gallery-category/create",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-28T08:39:35.518Z",
+            "modified": "2024-02-28T08:39:35.518Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test"
+                    },
+                    {
+                        "name": "category",
+                        "value": "2",
+                        "isDisabled": true
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.33 PM.jpeg",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "aeaf4725-d19a-4099-8708-0c6930474a43",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery-category/update",
+            "url": "https://server-api.jap.bio/api/v1/gallery-category/update/3",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-02-28T08:40:14.754Z",
+            "modified": "2024-02-28T08:40:14.754Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test2"
+                    },
+                    {
+                        "name": "category",
+                        "value": "2",
+                        "isDisabled": true
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.33 PM.jpeg",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "4be91993-df95-4914-95e6-c7e7426f8af6",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery-category/detail",
+            "url": "https://server-api.jap.bio/api/v1/gallery-category/detail/3",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-02-28T08:40:39.466Z",
+            "modified": "2024-02-28T08:40:39.466Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test2"
+                    },
+                    {
+                        "name": "category",
+                        "value": "2",
+                        "isDisabled": true
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.33 PM.jpeg",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "dc854fa6-1c47-4ebc-99be-c96a974e73ac",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery/update",
+            "url": "https://server-api.jap.bio/api/v1/gallery/update/2",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-02-28T08:43:00.785Z",
+            "modified": "2024-02-28T08:43:00.785Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test2",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "category",
+                        "value": "3"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.34 PM (1).jpeg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "e3273b10-0243-4a53-8189-238b0ea144ba",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery/create",
+            "url": "https://server-api.jap.bio/api/v1/gallery/create",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-02-28T08:43:46.366Z",
+            "modified": "2024-02-28T08:43:46.366Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test2",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "category",
+                        "value": "3"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.34 PM (1).jpeg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1e8fb20f-7e75-4fda-b0bb-b43ef8c826ff",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery/detail",
+            "url": "https://server-api.jap.bio/api/v1/gallery/detail/3",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-02-28T08:44:23.100Z",
+            "modified": "2024-02-28T08:44:23.100Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test2",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "category",
+                        "value": "3"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.34 PM (1).jpeg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "1289e555-0074-4051-b523-c446667ce133",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery/delete",
+            "url": "https://server-api.jap.bio/api/v1/gallery/delete/3",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2024-02-28T08:44:57.997Z",
+            "modified": "2024-02-28T08:44:57.997Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test2",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "category",
+                        "value": "3"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.34 PM (1).jpeg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        },
+        {
+            "_id": "2cc78b4d-82a0-4cfe-8c7f-56c46474943b",
+            "colId": "747d2e14-ce52-4e85-bccc-2fdfa0179912",
+            "containerId": "",
+            "name": "gallery-category/delete",
+            "url": "https://server-api.jap.bio/api/v1/gallery-category/delete/3",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2024-02-28T08:47:04.031Z",
+            "modified": "2024-02-28T08:47:04.031Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "email",
+                        "value": "info@jap.bio",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "Japindia@2023",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "name",
+                        "value": "test2",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "category",
+                        "value": "3"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "image",
+                        "value": "/Users/subham/Downloads/WhatsApp Image 2024-02-26 at 8.29.34 PM (1).jpeg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "136|M1gbx3nQgBfVf18m26PULvmfhnc0f7f1YbbeUFJq"
+            },
+            "tests": []
+        }
+    ]
+}

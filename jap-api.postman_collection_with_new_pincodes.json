@@ -1,0 +1,5495 @@
+{
+	"info": {
+		"_postman_id": "74a1066c-a130-430f-9f22-8c0ce1f99c49",
+		"name": "jap-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27798979"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.backup043@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156161",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/auth/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "Super-Admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/user/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create category - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/category/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create coupon - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "test10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/coupon/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coupon",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create pincode - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "state",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "min_pincode",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "max_pincode",
+							"value": "11",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/pincode/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pincode",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update coupon - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "ABC10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/coupon/update/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coupon",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update pincode - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "state",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "min_pincode",
+							"value": "11",
+							"type": "text"
+						},
+						{
+							"key": "max_pincode",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/pincode/update/37",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pincode",
+						"update",
+						"37"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail coupon - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "ABC10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/coupon/detail/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coupon",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail pincode - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "ABC10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/pincode/detail/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pincode",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete coupon - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "ABC10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/coupon/delete/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coupon",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete pincode - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "ABC10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/pincode/delete/37",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pincode",
+						"delete",
+						"37"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate coupon - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "ABC10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/coupon/paginate",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"coupon",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate pincode - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category new",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "ABC10",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "maximum_dicount_in_price",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "maximum_number_of_use",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/pincode/paginate",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pincode",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create enquiry - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "address",
+							"type": "text"
+						},
+						{
+							"key": "company_name",
+							"value": "company_name",
+							"type": "text"
+						},
+						{
+							"key": "company_website",
+							"value": "company_website",
+							"type": "text"
+						},
+						{
+							"key": "designation",
+							"value": "designation",
+							"type": "text"
+						},
+						{
+							"key": "product",
+							"value": "product",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "quantity",
+							"type": "text"
+						},
+						{
+							"key": "gst",
+							"value": "gst",
+							"type": "text"
+						},
+						{
+							"key": "certification",
+							"value": "certification",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/enquiry/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enquiry",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update enquiry - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/enquiry/update/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enquiry",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail enquiry - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/enquiry/detail/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enquiry",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resend user account verification mail - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/email/verify/resend-notification",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"email",
+						"verify",
+						"resend-notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete enquiry - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/enquiry/delete/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enquiry",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate enquiry - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/enquiry/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enquiry",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excel enquiry - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/enquiry/excel",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enquiry",
+						"excel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excel category - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/category/excel",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"excel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excel product - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/excel",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"excel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload excel product - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "excel",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/excel/upload",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"excel",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excel order - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/excel",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"excel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "excel user - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category new two",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png"
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test updated",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/user/excel",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"excel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "inventory",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "pincode[0]",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save wishlist - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product[0]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "product[1]",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/wishlist",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save cart - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\" : [{\"product_id\":5, \"quantity\":1}, {\"product_id\":3, \"quantity\":2}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/cart",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save taxes - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tax_in_percentage\": \"18\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/tax",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tax"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save delivery charges - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"delivery_charges\": \"100\",\n    \"no_delivery_charges_for_cart_total_price_above\": \"1000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/delivery-charge",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delivery-charge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "place order - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"billing_first_name\" : \"subham\",\n    \"billing_last_name\" : \"saha\",\n    \"billing_email\": \"subham@gmail.com\",\n    \"billing_phone\": \"7892156160\",\n    \"billing_country\": \"India\",\n    \"billing_state\": \"karnataka\",\n    \"billing_city\": \"bangalore\",\n    \"billing_pin\": \"535595\",\n    \"billing_address_1\": \"test\",\n    \"mode_of_payment\": \"Cash On Delivery\",\n    \"order\" : [{\"product_id\":5, \"quantity\":1}, {\"product_id\":3, \"quantity\":2}],\n    \"coupon_code\": \"ABC10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/place",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"place"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify order - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razorpay_order_id\" : \"order_M1sX084Ub2gpnR\",\n    \"razorpay_payment_id\": \"asldjlasd\",\n    \"razorpay_signature\": \"kajsbad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/verify-payment",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"verify-payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "placed order detail - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razorpay_order_id\" : \"order_M1sX084Ub2gpnR\",\n    \"razorpay_payment_id\": \"asldjlasd\",\n    \"razorpay_signature\": \"kajsbad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/placed/detail/04dd1dcf-beca-44be-8ebc-a2528f60913e",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"placed",
+						"detail",
+						"04dd1dcf-beca-44be-8ebc-a2528f60913e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "placed order invoice download - user/admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razorpay_order_id\" : \"order_M1sX084Ub2gpnR\",\n    \"razorpay_payment_id\": \"asldjlasd\",\n    \"razorpay_signature\": \"kajsbad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/invoice/04dd1dcf-beca-44be-8ebc-a2528f60913e",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"invoice",
+						"04dd1dcf-beca-44be-8ebc-a2528f60913e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "placed order cancel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razorpay_order_id\" : \"order_M1sX084Ub2gpnR\",\n    \"razorpay_payment_id\": \"asldjlasd\",\n    \"razorpay_signature\": \"kajsbad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/placed/cancel/e8d48f0d-5b09-48ad-b08e-b26c7574237a",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"placed",
+						"cancel",
+						"e8d48f0d-5b09-48ad-b08e-b26c7574237a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order detail - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razorpay_order_id\" : \"order_M1sX084Ub2gpnR\",\n    \"razorpay_payment_id\": \"asldjlasd\",\n    \"razorpay_signature\": \"kajsbad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/detail/36",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"detail",
+						"36"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order status - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"order_status\" : \"OUT FOR DELIVERY\",\n    \"payment_status\": \"PAID\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/status/36",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"status",
+						"36"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order paginate - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razorpay_order_id\" : \"order_M1sX084Ub2gpnR\",\n    \"razorpay_payment_id\": \"asldjlasd\",\n    \"razorpay_signature\": \"kajsbad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/paginate?filter[payment_status]=PAID",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"paginate"
+					],
+					"query": [
+						{
+							"key": "filter[payment_status]",
+							"value": "PAID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "placed order paginate - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"razorpay_order_id\" : \"order_M1sX084Ub2gpnR\",\n    \"razorpay_payment_id\": \"asldjlasd\",\n    \"razorpay_signature\": \"kajsbad\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/order/placed/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"order",
+						"placed",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "apply coupon - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"coupon_code\":\"ABC10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/cart/apply-coupon",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"apply-coupon"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail wishlist - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product[0]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "product[1]",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/wishlist",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"wishlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail cart - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product[0]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "product[1]",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/cart",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail delivery charges - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product[0]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "product[1]",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/delivery-charge",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delivery-charge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail taxes - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product[0]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "product[1]",
+							"value": "3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/tax",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tax"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product-images - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/images/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"images",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create product-reviews - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "star",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/reviews/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"reviews",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product-reviews - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "star",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/reviews/update/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"reviews",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail product-reviews - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "star",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/reviews/detail/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"reviews",
+						"detail",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product-reviews - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "star",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/reviews/delete/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"reviews",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate product-reviews - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "star",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/reviews/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"reviews",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product-images - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/black-logo.webp"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/images/update/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"images",
+						"update",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail product-images - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/black-logo.webp"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/images/detail/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"images",
+						"detail",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product-images - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/black-logo.webp"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/images/delete/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"images",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate product-images - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/black-logo.webp"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/3/images/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"3",
+						"images",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product new",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "915",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "73",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "inventory",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "pincode[0]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "pincode[1]",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/update/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"update",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pincode product - user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product new",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png",
+							"disabled": true
+						},
+						{
+							"key": "price",
+							"value": "915",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "73",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "inventory",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/update/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"update",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail product - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/detail/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"detail",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete product - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/delete/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate product - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/paginate?filter[has_reviews]=4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"paginate"
+					],
+					"query": [
+						{
+							"key": "filter[has_reviews]",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate product - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/main/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"main",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate category - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/category/main/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"main",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail category - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/category/main/detail/test-category-new-two",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"main",
+						"detail",
+						"test-category-new-two"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail product - user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test product",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "featured_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						},
+						{
+							"key": "price",
+							"value": "200.00",
+							"type": "text"
+						},
+						{
+							"key": "discount",
+							"value": "18.00",
+							"type": "text"
+						},
+						{
+							"key": "is_new_arrival",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "is_featured",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "is_best_sale",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category[0]",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "category[1]",
+							"value": "7",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/product/main/detail/test-product-new",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"main",
+						"detail",
+						"test-product-new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update category - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category updated",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png",
+							"disabled": true
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/category/update/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail category - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category updated",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png",
+							"disabled": true
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/category/detail/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"detail",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate category - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category updated",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png",
+							"disabled": true
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/category/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete category - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test category updated",
+							"type": "text"
+						},
+						{
+							"key": "slug",
+							"value": "test category",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "test data",
+							"type": "text"
+						},
+						{
+							"key": "is_active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "banner_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1.png",
+							"disabled": true
+						},
+						{
+							"key": "icon_image",
+							"type": "file",
+							"src": "/Users/subham/Downloads/logo-trimurti-1 (1).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/category/delete/5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"category",
+						"delete",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update user - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "staff",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/user/update/10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"update",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.backup043@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156161",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "Super-Admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/user/delete/9",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"delete",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginate user - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.backup043@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156161",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "Super-Admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/user/paginate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"paginate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "detail user - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "subham saha",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "subham.backup043@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156161",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "Super-Admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/user/detail/8",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"detail",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "subham.backup043@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/auth/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "forgot-password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/auth/forgot-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "subham.5ine@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "subham sahaa",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "7892156160",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/profile/update",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"update"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "old_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						},
+						{
+							"key": "confirm_password",
+							"value": "Subhamaks@88676",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/profile/update-password",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile",
+						"update-password"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/auth/logout",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 13|MjRsjSqcoNnsjEt0lpEEgC1rqUKkeC29wptAnZYm",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/profile",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "permissions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/permissions",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"permissions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roles",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/roles",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"roles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roles paginate - admin",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 12|sTnAeeT1YXhSSyzZwWDKDVS53cnFZsrSRIxlI7FO",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/api/v1/roles/paginate?total=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"roles",
+						"paginate"
+					],
+					"query": [
+						{
+							"key": "total",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roles create - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test3",
+							"type": "text"
+						},
+						{
+							"key": "permissions[0]",
+							"value": "list users",
+							"type": "text"
+						},
+						{
+							"key": "permissions[1]",
+							"value": "list roles",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/roles/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"roles",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roles update - admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test2",
+							"type": "text"
+						},
+						{
+							"key": "permissions[0]",
+							"value": "list users",
+							"type": "text"
+						},
+						{
+							"key": "permissions[1]",
+							"value": "list roles",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/roles/update/23",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"roles",
+						"update",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roles delete - admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test2",
+							"type": "text"
+						},
+						{
+							"key": "permissions[0]",
+							"value": "list users",
+							"type": "text"
+						},
+						{
+							"key": "permissions[1]",
+							"value": "list roles",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/roles/delete/22",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"roles",
+						"delete",
+						"22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "roles delail - admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 8|TeNGYqIv7OOjC84hn5rYhpbYI3JpDMN2A75tTf5E",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "test2",
+							"type": "text"
+						},
+						{
+							"key": "permissions[0]",
+							"value": "list users",
+							"type": "text"
+						},
+						{
+							"key": "permissions[1]",
+							"value": "list roles",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1/roles/detail/20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"roles",
+						"detail",
+						"20"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// pm.sendRequest({",
+					"//     url: pm.collectionVariables.get('base_url')+'/sanctum/csrf-cookie',",
+					"//     method: 'GET'",
+					"// }, function (error, response, {cookies}) {",
+					"//     if (!error){",
+					"//         pm.collectionVariables.set('xsrf-cookie', cookies.get('XSRF-TOKEN'))",
+					"//     }",
+					"// })"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:3000",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "xsrf-cookie",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "base_url",
+			"value": "https://server-api.jap.bio",
+			"type": "string"
+		}
+	]
+}
