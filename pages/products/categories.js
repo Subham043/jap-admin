@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import PropTypes from "prop-types";
 import { useTheme } from "@mui/material/styles";
@@ -28,16 +28,13 @@ import ClearIcon from "@mui/icons-material/Clear";
 import axios from 'axios';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import CloseIcon from '@mui/icons-material/Close'; 
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
-
-
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+import { useCallback } from "react";
+import CategoryModal from "./category-modal";
 
 // Create new user Modal
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -49,37 +46,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-function BootstrapDialogTitle(props) {
-  const { children, onClose, ...other } = props;
-
-  return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
-}
-
-BootstrapDialogTitle.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func.isRequired,
-};
-// End Create new user Modal
-
-function UsersList(props) {
+function CategoryPagination(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
 
@@ -141,11 +108,73 @@ function UsersList(props) {
   );
 }
 
-UsersList.propTypes = {
+CategoryPagination.propTypes = {
   count: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
+};
+
+function CategoryDeleteButton({ id, fetchCategories }) {
+  const [loading, setLoading] = useState(false);
+  const {redirectLoginPage} = useCheckUnauthenticated();
+
+  const handleDeleteCategory = useCallback(async () => {
+    if (confirm("Are you sure you want to delete this item?")) {
+      setLoading(true);
+      try {
+        const accessToken = Cookies.get("japAccessToken");
+
+        if (accessToken && id) {
+          const categoryId = id;
+          const response = await axios.delete(
+            `https://server-api.jap.bio/api/v1/category/delete/${categoryId}`,
+            {
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+              },
+            }
+          );
+          // Perform any additional actions after successful deletion
+          // Reload the page or update the pincode list
+          // For example, you can call fetchPincode() to update the pincode list
+          fetchCategories();
+        }
+      } catch (error) {
+        if (error.response.status === 401 || error.response.status === 401) {
+          redirectLoginPage();
+        }
+        console.error("Error deleting pincode:", error.response.data);
+        // Handle error case
+      } finally {
+        setLoading(false);
+      }
+    }
+  }, [fetchCategories, id, redirectLoginPage]);
+
+  return (
+    <Tooltip title="Remove" placement="top">
+      <IconButton
+        aria-label="remove"
+        size="small"
+        color="danger"
+        className="danger"
+        disabled={loading}
+        onClick={handleDeleteCategory}
+      >
+        {loading ? (
+          <CircularProgress color="inherit" />
+        ) : (
+          <DeleteIcon fontSize="inherit" />
+        )}
+      </IconButton>
+    </Tooltip>
+  );
+}
+
+CategoryDeleteButton.propTypes = {
+  fetchCategories: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 
@@ -154,167 +183,23 @@ export default function User() {
   // Table
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [isActive, setIsActive] = useState(true);
   const {redirectLoginPage} = useCheckUnauthenticated();
  
   // Create new user modal
-  const [open, setOpen] = React.useState(false);
-  const [open2, setOpen2] = React.useState(false);
-  const [currentRow, setCurrentRow] = useState(null);
+  const [modal, setModal] = useState({ status: false, type: "create" });
 
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
   const handleClose = () => {
-    setOpen(false);
+    setModal({ status: false, type: "create" });
   };
-
-  const handleClickOpen2 = (category) => {
-    setOpen2(true);
-    setCurrentRow(category);
-    console.log(category);
-  };
-
-  const handleClose2 = () => {
-    setOpen2(false);
-  };
-  const [name, setName] = useState("");
-  const [slug, setSlug] = useState("");
-  const [description, setDescription] = useState("");
-  const [bannerImage, setBannerImage] = useState(null);
-  const [iconImage, setIconImage] = useState(null);
-
-  const handleBannerImageChange = (event) => {
-    const file = event.target.files[0];
-    setBannerImage(file);
-  };
-
-  const handleIconImageChange = (event) => {
-    const file = event.target.files[0];
-    setIconImage(file);
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    
-    try {
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("slug", slug);
-      formData.append("description", description);
-      formData.append("is_active", isActive ? "1" : "0");
-      formData.append("banner_image", bannerImage);
-      formData.append("icon_image", iconImage);
-    
-      const accessToken = Cookies.get("japAccessToken");
-  
-      if (accessToken) {
-        const response = await axios.post(
-          "https://server-api.jap.bio/api/v1/category/create",
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-  
-        console.log("Category created successfully:", response.data);
-        // Reset the form after successful submission if needed
-        setName("");
-        setSlug("");
-        setDescription("");
-        setIsActive(true);
-        setBannerImage(null);
-        setIconImage(null);
-
-        handleClose();
-        fetchCategories();
-      }
-    } catch (error) {
-      if (error.response.status === 401 || error.response.status === 401) {
-        redirectLoginPage();
-      }
-      console.error("Error creating product:", error.response.data);
-    }
-  };
-
-  const handleUpdate = async (event) => {
-    event.preventDefault();
-  
-    try {
-      const formData = new FormData();
-      formData.append("name", name); // Include the name field
-      formData.append("slug", slug); // Include the slug field
-      formData.append("description", description); // Include the description field
-      formData.append("is_active", isActive ? "1" : "0"); // Include the is_active field
-  
-      const accessToken = Cookies.get("japAccessToken");
-  
-      if (accessToken) {
-        const response = await axios.post(
-          `https://server-api.jap.bio/api/v1/category/update/${currentRow.id}`,
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        );
-  
-        console.log("Category updated successfully:", response.data);
-        // Reset the form after successful submission if needed
-        setName("");
-        setSlug("");
-        setDescription("");
-        setIsActive(true);
-        setBannerImage(null);
-        setIconImage(null);
-  
-        handleClose2();
-        fetchCategories();
-      }
-    } catch (error) {
-      if (error.response.status === 401 || error.response.status === 401) {
-        redirectLoginPage();
-      }
-      console.error("Error updating category:", error.response.data);
-    }
-  };
-  
-  
-  useEffect(() => {
-    // const loginValue = localStorage.getItem('login_');
-    // if (loginValue !== null && loginValue === '1') {
-    //   console.log('ok');
-    // } else {
-    //   window.location.href = '/authentication/sign-in/';
-    // }
-    if (currentRow) {
-      setName(currentRow.name);
-      setSlug(currentRow.slug);
-      setDescription(currentRow.description);
-      setIsActive(currentRow.isActive ? "1":"0");
-      
-    }
-  }, [currentRow]);
   
   
   // End Add Task Modal
-  const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [categories, setCategories] = useState([]);
   const [totalCategories, setTotalCategories]=useState(0);
   const [loading, setLoading] = useState(true);
-  
-  useEffect(() => {
-     fetchCategories();
-  }, [page, rowsPerPage]);
-  const fetchCategories = async () => {
+
+  const fetchCategories = useCallback(async () => {
+    setLoading(true);
     const accessToken = Cookies.get("japAccessToken");
 
     try {
@@ -328,26 +213,21 @@ export default function User() {
       );
       setCategories(response.data.data);
       setTotalCategories(response.data.meta.total)
-      setLoading(false); // Set loading to false after fetching data
-      console.log('Products Fetched for Page', page + 1, response.data.data);
-      console.log(response.data.data)
     } catch (error) {
       if (error.response.status === 401 || error.response.status === 401) {
         redirectLoginPage();
       }
+    }finally {
+      setLoading(false);
     }
-  };
+  }, [page, redirectLoginPage, rowsPerPage]);
+
+  useEffect(() => {
+    fetchCategories();
+  }, [page, rowsPerPage, fetchCategories]);
+
   const handleChangePage = (event, newPage) => {
-    if (newPage < 0) {
-      // Loop to the last page if the user goes to a negative page
-      setPage(Math.max(0, Math.ceil(totalCategories / rowsPerPage) - 1));
-    } else if (newPage >= Math.ceil(totalCategories / rowsPerPage)) {
-      // Loop to the first page if the user goes beyond the last page
-      setPage(0);
-    } else {
-      // Fetch the products for the new page
-      setPage(newPage);
-    }
+    setPage(newPage);
   };
 
   const handleChangeRowsPerPage = (event) => {
@@ -355,36 +235,8 @@ export default function User() {
     setPage(0);
   };
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, categories.length);
-
-  const handleDelete = async (id) => {
-    const accessToken = Cookies.get("japAccessToken");
-      try {
-        await axios.delete(`https://server-api.jap.bio/api/v1/category/delete/${id}`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-    
-      // Remove the deleted product from the state
-      setCategories((prevProducts) =>
-        prevProducts.filter((category) => category.id !== id)
-      );
-      console.log(id)
-      fetchCategories();
-      console.log(`category with ID ${id} deleted successfully.`);
-    } catch (error) {
-      if (error.response.status === 401 || error.response.status === 401) {
-        redirectLoginPage();
-      }
-      console.error(`Error deleting category with ID ${id}:`, error.response.data);
-    }
-  };
-
   return (
     <>
-      
-
       <Card
         sx={{
           boxShadow: "none",
@@ -415,7 +267,7 @@ export default function User() {
           </Typography>
 
           <Button
-            onClick={handleClickOpen}
+            onClick={() => setModal({ status: true, type: "create" })}
             variant="contained"
             sx={{
               textTransform: "capitalize",
@@ -428,7 +280,7 @@ export default function User() {
           >
             <AddIcon
               sx={{ position: "relative", top: "-1px" }}
-              className='mr-5px'
+              className="mr-5px"
             />{" "}
             Create New Category
           </Button>
@@ -440,8 +292,8 @@ export default function User() {
             boxShadow: "none",
           }}
         >
-          <Table 
-            sx={{ minWidth: 900 }} 
+          <Table
+            sx={{ minWidth: 900 }}
             aria-label="custom pagination table"
             className="dark-table"
           >
@@ -452,37 +304,41 @@ export default function User() {
                 <TableCell align="left">Banner_Image</TableCell>
                 <TableCell align="left">Icon</TableCell>
                 <TableCell align="right">Actions</TableCell>
-
               </TableRow>
             </TableHead>
 
             <TableBody>
-            {categories.map((category) => (
+              {categories.map((category) => (
                 <TableRow key={category.slug}>
-                 <TableCell align="left">{category.name}</TableCell>
+                  <TableCell align="left">{category.name}</TableCell>
                   <TableCell align="left">{category.slug}</TableCell>
-                  <TableCell align="left"><img src={category.banner_image_link} alt="Product Img" width={50} className="borderRadius10" /></TableCell>
-                  <TableCell align="left"><img src={category.icon_image_link} alt="Product Img" width={50} className="borderRadius10" /></TableCell>
-                  
-                  <TableCell
-                    align="right"
-                  >
+                  <TableCell align="left">
+                    <img
+                      src={category.banner_image_link}
+                      alt="Product Img"
+                      width={50}
+                      className="borderRadius10"
+                    />
+                  </TableCell>
+                  <TableCell align="left">
+                    <img
+                      src={category.icon_image_link}
+                      alt="Product Img"
+                      width={50}
+                      className="borderRadius10"
+                    />
+                  </TableCell>
+
+                  <TableCell align="right">
                     <Box
                       sx={{
                         display: "inline-block",
                       }}
                     >
-                      <Tooltip title="Remove" placement="top">
-                        <IconButton
-                          aria-label="remove"
-                          size="small"
-                          color="danger"
-                          className="danger"
-                          onClick={()=>{handleDelete(category.id)}}
-                        >
-                          <DeleteIcon fontSize="inherit" />
-                        </IconButton>
-                      </Tooltip>
+                      <CategoryDeleteButton
+                        id={category.id}
+                        fetchCategories={fetchCategories}
+                      />
 
                       <Tooltip title="Rename" placement="top">
                         <IconButton
@@ -490,8 +346,16 @@ export default function User() {
                           size="small"
                           color="primary"
                           className="primary"
-                          onClick={()=>{handleClickOpen2(category)}}
-
+                          onClick={() =>
+                            setModal({
+                              status: true,
+                              type: "update",
+                              data: {
+                                ...category,
+                                is_active: category.is_active ? "1" : "0",
+                              },
+                            })
+                          }
                         >
                           <DriveFileRenameOutlineIcon fontSize="inherit" />
                         </IconButton>
@@ -501,12 +365,15 @@ export default function User() {
                 </TableRow>
               ))}
 
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 53 * emptyRows }}>
+              {categories.length === 0 && (
+                <TableRow>
                   <TableCell
                     colSpan={5}
+                    align="center"
                     style={{ borderBottom: "1px solid #F7FAFF" }}
-                  />
+                  >
+                    No Categories Found
+                  </TableCell>
                 </TableRow>
               )}
             </TableBody>
@@ -520,7 +387,7 @@ export default function User() {
                   rowsPerPage={rowsPerPage}
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
-                  ActionsComponent={UsersList}
+                  ActionsComponent={CategoryPagination}
                 />
               </TableRow>
             </TableFooter>
@@ -528,440 +395,11 @@ export default function User() {
         </TableContainer>
       </Card>
 
-      {/* Create new user modal */}
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              background: "#EDEFF5",
-              borderRadius: "8px",
-              padding: "20px 20px",
-            }}
-            className="bg-black"
-          >
-            <Typography
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-              sx={{
-                fontWeight: "500",
-                fontSize: "18px",
-              }}
-            >
-              Create New Category
-            </Typography>
-
-            <IconButton
-              aria-label="remove"
-              size="small"
-              onClick={handleClose}
-            >
-              <ClearIcon />
-            </IconButton>
-          </Box>
-
-          <Box component="form" noValidate onSubmit={handleSubmit}>
-            <Box
-              sx={{
-                background: "#fff",
-                padding: "20px 20px",
-                borderRadius: "8px",
-              }}
-              className="dark-BG-101010"
-            >
-              <Grid container alignItems="center" spacing={2}>
-                
-
-                <Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Name
-                  </Typography>
-
-                  <TextField
-                    autoComplete="name"
-                    name="name"
-                    required
-                    fullWidth
-                    id="name"
-                    label="Name"
-                    autoFocus
-                    value={name}
-                onChange={(e) => setName(e.target.value)}
-                    InputProps={{
-                      style: { borderRadius: 8 },
-                    }}
-                  />
-                </Grid><Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Slug
-                  </Typography>
-
-                  <TextField
-                    autoComplete="slug"
-                    name="slug"
-                    required
-                    fullWidth
-                    id="slug"
-                    label="Slug"
-                    autoFocus
-                    value={slug}
-                    onChange={(e) => setSlug(e.target.value)}
-                    InputProps={{
-                      style: { borderRadius: 8 },
-                    }}
-                  />
-                </Grid><Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Description
-                  </Typography>
-
-                  <TextField
-                    autoComplete="description"
-                    name="description"
-                    required
-                    fullWidth
-                    id="description"
-                    label="Description"
-                    autoFocus
-                    value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                    InputProps={{
-                      style: { borderRadius: 8 },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} md={12} lg={6}>
-<Typography
-                as="h5"
-                sx={{
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  mb: "12px",
-                }}
-              >
-                Is Active
-              </Typography>
-              <FormControl fullWidth>
-  <Select
-    value={isActive ? "1" : "0"}
-    onChange={(e) => setIsActive(e.target.value === "1")}
-    inputProps={{
-      name: "isActive",
-      id: "isActive",
-      style: { borderRadius: 8 },
-    }}
-  >
-    <MenuItem value="1">Active</MenuItem>
-    <MenuItem value="0">Inactive</MenuItem>
-  </Select>
-</FormControl>
-
-
-                </Grid> 
-                <Grid item xs={12} md={12} lg={6}>
-              <Typography
-                as="h5"
-                sx={{
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  mb: "12px",
-                }}
-              >
-                Banner Image
-              </Typography>
-              <input
-                type="file"
-                name="bannerImage"
-                id="bannerImage"
-                onChange={handleBannerImageChange}
-              />
-                </Grid>
-                <Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Icon Image
-                  </Typography>
-                  <input
-                    type="file"
-                    name="iconImage"
-                    id="iconImage"
-                    onChange={handleIconImageChange}
-                  />
-                </Grid>         
-
-            <Grid item xs={12} textAlign="end">
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{
-            mt: 1,
-            textTransform: "capitalize",
-            borderRadius: "8px",
-            fontWeight: "500",
-            fontSize: "13px",
-            padding: "12px 20px",
-            color: "#fff !important",
-          }}
-        >
-          <AddIcon sx={{ position: "relative", top: "-2px" }} className="mr-5px" /> Create Category
-        </Button>
-      </Grid>
-      
-              </Grid>
-            </Box>
-          </Box>
-        </Box>
-      </BootstrapDialog>
-      <BootstrapDialog
-        onClose={handleClose2}
-        aria-labelledby="customized-dialog-title"
-        open={open2}
-      >
-        <Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              background: "#EDEFF5",
-              borderRadius: "8px",
-              padding: "20px 20px",
-            }}
-            className="bg-black"
-          >
-            <Typography
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-              sx={{
-                fontWeight: "500",
-                fontSize: "18px",
-              }}
-            >
-              Update Category
-            </Typography>
-
-            <IconButton
-              aria-label="remove"
-              size="small"
-              onClick={handleClose2}
-            >
-              <ClearIcon />
-            </IconButton>
-          </Box>
-
-          <Box component="form" noValidate onSubmit={handleUpdate}>
-            <Box
-              sx={{
-                background: "#fff",
-                padding: "20px 20px",
-                borderRadius: "8px",
-              }}
-              className="dark-BG-101010"
-            >
-              <Grid container alignItems="center" spacing={2}>
-                
-
-                <Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Name
-                  </Typography>
-
-                  <TextField
-                  autoComplete="name"
-                  name="name"
-                  required
-                  fullWidth
-                  id="name"
-                  label="Name"
-                  autoFocus
-                  value={name}
-                  onChange={(e) => setName(e.target.value)} // Update the name state
-                  InputProps={{
-                    style: { borderRadius: 8 },
-                  }}
-                />
-                </Grid><Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Slug
-                  </Typography>
-
-                  <TextField
-                  autoComplete="slug"
-                  name="slug"
-                  required
-                  fullWidth
-                  id="slug"
-                  label="Slug"
-                  autoFocus
-                  value={slug}
-                  onChange={(e) => setSlug(e.target.value)} // Update the slug state
-                  InputProps={{
-                    style: { borderRadius: 8 },
-                  }}
-                />
-                </Grid><Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Description
-                  </Typography>
-                  <TextField
-                  autoComplete="description"
-                  name="description"
-                  required
-                  fullWidth
-                  id="description"
-                  label="Description"
-                  autoFocus
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)} // Update the description state
-                  InputProps={{
-                    style: { borderRadius: 8 },
-                  }}
-                />
-                </Grid>
-                <Grid item xs={12} md={12} lg={6}>
-                <Typography
-                as="h5"
-                sx={{
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  mb: "12px",
-                }}
-              >
-                Is Active
-              </Typography>
-              <FormControl fullWidth>
-  <Select
-    value={isActive ? "1" : "0"}
-    onChange={(e) => setIsActive(e.target.value === "1")}
-    inputProps={{
-      name: "isActive",
-      id: "isActive",
-      style: { borderRadius: 8 },
-    }}
-  >
-    <MenuItem value="1">Active</MenuItem>
-    <MenuItem value="0">Inactive</MenuItem>
-  </Select>
-</FormControl>
-
-
-                </Grid> 
-                <Grid item xs={12} md={12} lg={6}>
-              <Typography
-                as="h5"
-                sx={{
-                  fontWeight: "500",
-                  fontSize: "14px",
-                  mb: "12px",
-                }}
-              >
-                Banner Image
-              </Typography>
-              <input
-                type="file"
-                name="bannerImage"
-                id="bannerImage"
-                onChange={handleBannerImageChange}
-              />
-                </Grid>
-                <Grid item xs={12} md={12} lg={6}>
-                  <Typography
-                    as="h5"
-                    sx={{
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      mb: "12px",
-                    }}
-                  >
-                    Icon Image
-                  </Typography>
-                  <input
-                    type="file"
-                    name="iconImage"
-                    id="iconImage"
-                    onChange={handleIconImageChange}
-                  />
-                </Grid>         
-
-            <Grid item xs={12} textAlign="end">
-        <Button
-          type="submit"
-          variant="contained"
-          sx={{
-            mt: 1,
-            textTransform: "capitalize",
-            borderRadius: "8px",
-            fontWeight: "500",
-            fontSize: "13px",
-            padding: "12px 20px",
-            color: "#fff !important",
-          }}
-        >
-          <AddIcon sx={{ position: "relative", top: "-2px" }} className="mr-5px" /> Update Category
-        </Button>
-      </Grid>
-      
-              </Grid>
-            </Box>
-          </Box>
-        </Box>
-      </BootstrapDialog>
+      <CategoryModal
+        modal={modal}
+        handleClose={handleClose}
+        refetch={fetchCategories}
+      />
     </>
   );
 }
