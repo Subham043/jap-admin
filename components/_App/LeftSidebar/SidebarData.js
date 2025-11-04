@@ -55,10 +55,10 @@ export const SidebarData = [
         title: "All Products",
         path: "/ecommerce/products/",
       },
-      {
-        title: "Add New",
-        path: "/products/add-new",
-      },
+      // {
+      //   title: "Add New",
+      //   path: "/products/add-new",
+      // },
       {
         title: "Categories",
         path: "/products/categories",

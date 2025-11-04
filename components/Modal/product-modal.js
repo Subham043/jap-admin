@@ -733,11 +733,11 @@ export default function ProductModal({ modal, handleClose, refetch }) {
                               ) : Array.isArray(categories) ? (
                                 categories.map((category) => (
                                   <MenuItem
-                                    key={category.slug}
+                                    key={category.name}
                                     value={category.id}
                                     // onClick={() => console.log("Selected category ID:", category.id)}
                                   >
-                                    {category.slug}
+                                    {category.name}
                                   </MenuItem>
                                 ))
                               ) : null}

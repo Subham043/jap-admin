@@ -373,7 +373,7 @@ export default function Products() {
                       fontSize: "13px",
                     }}
                   >
-                    {row.categories.map((category) => category.slug).join(", ")}
+                    {row.categories.map((category) => category.name).join(", ")}
                   </TableCell>
                   <TableCell
                     align="center"
