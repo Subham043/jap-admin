@@ -202,7 +202,7 @@ export default function User() {
       console.error("Error fetching coupons:", error.response.data);
       // Handle error
     }
-  }, [page, rowsPerPage]);
+  }, [page, redirectLoginPage, rowsPerPage]);
 
   useEffect(() => {
     fetchCoupons();

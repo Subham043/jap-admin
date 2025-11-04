@@ -17,34 +17,17 @@ import FirstPageIcon from "@mui/icons-material/FirstPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
-import Grid from "@mui/material/Grid";
 import Tooltip from "@mui/material/Tooltip";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import AddIcon from "@mui/icons-material/Add";
-import ClearIcon from "@mui/icons-material/Clear";
-import { styled } from '@mui/material/styles';
-import Dialog from '@mui/material/Dialog';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useCallback } from "react";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
 import EnquiryModal from "../../components/Modal/enquiry-modal";
-
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
-// Create new user Modal
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
-    padding: theme.spacing(2),
-  },
-  '& .MuiDialogActions-root': {
-    padding: theme.spacing(1),
-  },
-}));
 // End Create new user Modal
 
 function EnquiryPagination(props) {

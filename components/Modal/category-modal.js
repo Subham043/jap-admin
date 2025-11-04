@@ -8,16 +8,13 @@ import PropTypes from "prop-types";
 import ClearIcon from "@mui/icons-material/Clear";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import Cookies from "js-cookie";
 import * as yup from "yup";
 import { Controller, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
-import { useCallback } from "react";
 
 export const categorySchema = yup
   .object({
