@@ -21,8 +21,9 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
+import { useCallback } from "react";
 
-function OrdersList(props) {
+function OrderPagination(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
 
@@ -84,64 +85,54 @@ function OrdersList(props) {
   );
 }
 
-OrdersList.propTypes = {
+OrderPagination.propTypes = {
   count: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-const OrdersLists = () =>{
+const OrdersLists = () => {
   const [orders, setOrders] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [count, setCount] = React.useState(0);
-  const {redirectLoginPage} = useCheckUnauthenticated();
+  const { redirectLoginPage } = useCheckUnauthenticated();
 
-  React.useEffect(() => {
-    fetchOrders();
-  }, [page, rowsPerPage]);
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
       const accessToken = Cookies.get("japAccessToken");
-      const response = await axios.get(`https://server-api.jap.bio/api/v1/order/paginate?page=${page + 1}`,
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`, // Replace with your access token variable
-        },
-      }
+      const response = await axios.get(
+        `https://server-api.jap.bio/api/v1/order/paginate?page=${
+          page + 1
+        }&total=${rowsPerPage}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Replace with your access token variable
+          },
+        }
       );
-      console.log(response.data)
-      const { data } = response.data;
-      setOrders(data);
-      setCount(data.total);
-    console.log('Orders Fetched for Page', page + 1, response.data.data);
-
+      setOrders(response.data.data);
+      setCount(response.data.meta.total);
     } catch (error) {
       if (error.response.status === 401 || error.response.status === 401) {
         redirectLoginPage();
       }
-      console.error("Error fetching orders:", error);
     }
-  };
+  }, [page, redirectLoginPage, rowsPerPage]);
+
+  React.useEffect(() => {
+    fetchOrders();
+  }, [page, rowsPerPage, fetchOrders]);
+
   const handleChangePage = (event, newPage) => {
-    if (newPage < 0) {
-      // Loop to the last page if the user goes to a negative page
-      setPage(Math.max(0, Math.ceil(count / rowsPerPage) - 1));
-    } else if (newPage >= Math.ceil(count / rowsPerPage)) {
-      // Loop to the first page if the user goes beyond the last page
-      setPage(0);
-    } else {
-      // Fetch the products for the new page
-      setPage(newPage);
-    }
+    setPage(newPage);
   };
+
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, orders.length);
-
 
   return (
     <>
@@ -170,8 +161,6 @@ const OrdersLists = () =>{
           >
             Recent Orders
           </Typography>
-
-          
         </Box>
 
         <TableContainer
@@ -180,319 +169,332 @@ const OrdersLists = () =>{
             boxShadow: "none",
           }}
         >
-          <Table 
-            sx={{ minWidth: 950 }} 
+          <Table
+            sx={{ minWidth: 950 }}
             aria-label="custom pagination table"
             className="dark-table"
           >
-          <TableHead sx={{ background: "#F7FAFF" }}>
-  <TableRow>
-    <TableCell
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Order ID
-    </TableCell>
-    <TableCell
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-     Products
-    </TableCell>
-    <TableCell
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-     Weight
-    </TableCell>
-    <TableCell
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Total Items
-    </TableCell>
+            <TableHead sx={{ background: "#F7FAFF" }}>
+              <TableRow>
+                <TableCell
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Order ID
+                </TableCell>
+                <TableCell
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Products
+                </TableCell>
+                <TableCell
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Weight
+                </TableCell>
+                <TableCell
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Total Items
+                </TableCell>
 
-    <TableCell
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Total Quantity
-    </TableCell>
+                <TableCell
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Total Quantity
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Subtotal
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Subtotal
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Total Discount
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Total Discount
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Total Price (without GST and Delivery Charge)
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Total Price (without GST and Delivery Charge)
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      GST Charge
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  GST Charge
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Delivery Charge
-    </TableCell>
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Mode Of Payment
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Delivery Charge
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Mode Of Payment
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Total Price (with GST and Delivery Charge)
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Total Price (with GST and Delivery Charge)
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Coupon Discount
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Coupon Discount
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Total Price (with Coupon Discount)
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Total Price (with Coupon Discount)
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Billing First Name
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Billing First Name
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Billing Last Name
-    </TableCell>
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Billing Adresss
-    </TableCell>
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Billing Number
-    </TableCell>
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Shipping First Name
-    </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Billing Last Name
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Billing Adresss
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Billing Number
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Shipping First Name
+                </TableCell>
 
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Shipping Last Name
-    </TableCell>
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Shipping Adresss
-    </TableCell>
-    <TableCell
-      align="center"
-      sx={{
-        borderBottom: "1px solid #F7FAFF",
-        fontSize: "13.5px",
-        padding: "16px 10px",
-      }}
-    >
-      Shipping Number
-    </TableCell>
-    
-    {/* Add more TableCells for other properties */}
-  </TableRow>
-</TableHead>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Shipping Last Name
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Shipping Adresss
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{
+                    borderBottom: "1px solid #F7FAFF",
+                    fontSize: "13.5px",
+                    padding: "16px 10px",
+                  }}
+                >
+                  Shipping Number
+                </TableCell>
+
+                {/* Add more TableCells for other properties */}
+              </TableRow>
+            </TableHead>
             <TableBody>
-                {Array.isArray(orders) ? (
-                  orders.map((order) => (
+              {Array.isArray(orders)
+                ? orders.map((order) => (
                     <TableRow key={order.id}>
                       <TableCell>{order.id}</TableCell>
                       <TableCell>
-          {order.products.length > 0 ? (
-            <ul>
-              {order.products.map((product) => (
-                <li key={product.id}>{product.name}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No products in this order.</p>
-          )}
-        </TableCell>
-        <TableCell>
-          {order.products.length > 0 ? (
-            <ul>
-              {order.products.map((product) => (
-                <li key={product.id}>{product.weight}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>No products weight.</p>
-          )}
-        </TableCell>
+                        {order.products.length > 0 ? (
+                          <ul>
+                            {order.products.map((product) => (
+                              <li key={product.id}>{product.name}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>No products in this order.</p>
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        {order.products.length > 0 ? (
+                          <ul>
+                            {order.products.map((product) => (
+                              <li key={product.id}>{product.weight}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>No products weight.</p>
+                        )}
+                      </TableCell>
                       <TableCell>{order.total_items}</TableCell>
                       <TableCell>{order.total_quantity}</TableCell>
                       <TableCell>{order.sub_total}</TableCell>
                       <TableCell>{order.total_discount}</TableCell>
-                      <TableCell>{order.total_price_without_gst_delivery_charge}</TableCell>
+                      <TableCell>
+                        {order.total_price_without_gst_delivery_charge}
+                      </TableCell>
                       <TableCell>{order.gst_charge}</TableCell>
                       <TableCell>{order.delivery_charge}</TableCell>
                       <TableCell>{order.mode_of_payment}</TableCell>
-                      <TableCell>{order.total_price_with_gst_delivery_charge.toFixed(2)}</TableCell>
+                      <TableCell>
+                        {order.total_price_with_gst_delivery_charge.toFixed(2)}
+                      </TableCell>
                       <TableCell>{order.coupon_discount}</TableCell>
-                      <TableCell>{order.total_price_with_coupon_dicount}</TableCell>
+                      <TableCell>
+                        {order.total_price_with_coupon_dicount}
+                      </TableCell>
                       <TableCell>{order.billing_first_name}</TableCell>
                       <TableCell>{order.billing_last_name}</TableCell>
-                      <TableCell>{order.billing_address_1} {order.billing_address_2}</TableCell>
-                      <TableCell>{order.billing_phone}</TableCell> 
+                      <TableCell>
+                        {order.billing_address_1} {order.billing_address_2}
+                      </TableCell>
+                      <TableCell>{order.billing_phone}</TableCell>
                       <TableCell>{order.shipping_first_name}</TableCell>
                       <TableCell>{order.shipping_last_name}</TableCell>
-                      <TableCell>{order.shipping_address_1} {order.shipping_address_2}</TableCell>
-                      <TableCell>{order.shipping_phone}</TableCell>                     
+                      <TableCell>
+                        {order.shipping_address_1} {order.shipping_address_2}
+                      </TableCell>
+                      <TableCell>{order.shipping_phone}</TableCell>
 
                       {/* Add more cells as needed */}
                     </TableRow>
                   ))
-                ) : null}
+                : null}
 
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 53 * emptyRows }}>
+              {orders.length === 0 && (
+                <TableRow>
                   <TableCell
                     colSpan={8}
+                    align="center"
                     style={{ borderBottom: "1px solid #F7FAFF" }}
-                  />
+                  >
+                    No orders found
+                  </TableCell>
                 </TableRow>
               )}
             </TableBody>
 
             <TableFooter>
-           { Array.isArray(orders) && orders.length > 0 && (
-              <TableRow>
-                <TablePagination
-                  rowsPerPageOptions={[10, 25, 50]}
-                  count={count}
-                  page={page}
-                  rowsPerPage={rowsPerPage}
-                  onPageChange={handleChangePage}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                  ActionsComponent={OrdersList}
-                />
-              </TableRow>
+              {Array.isArray(orders) && orders.length > 0 && (
+                <TableRow>
+                  <TablePagination
+                    rowsPerPageOptions={[10, 25, 50]}
+                    count={count}
+                    page={page}
+                    rowsPerPage={rowsPerPage}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                    ActionsComponent={OrderPagination}
+                  />
+                </TableRow>
               )}
             </TableFooter>
           </Table>
@@ -500,5 +502,5 @@ const OrdersLists = () =>{
       </Card>
     </>
   );
-}
+};
 export default OrdersLists;

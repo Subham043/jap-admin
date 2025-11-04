@@ -1,6 +1,5 @@
 import React from 'react';
 import OrdersLists from '@/components/eCommerce/OrdersList/OrdersLists';
-import Features from '@/components/eCommerce/OrdersList/Features';
 import Link from 'next/link';
 import styles from '@/styles/PageTitle.module.css'
 
