@@ -33,7 +33,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import MenuItem from "@mui/material/MenuItem";
 import { useCallback } from "react";
-import UserModal from "./user-modal";
+import UserModal from "../../components/Modal/user-modal";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
 

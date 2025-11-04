@@ -25,7 +25,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Checkbox from '@mui/material/Checkbox';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import CouponModal from "./coupon-modal";
+import CouponModal from "../../components/Modal/coupon-modal";
 import { useCallback } from "react";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";

@@ -32,7 +32,7 @@ import axios from "axios";
 import { useCallback } from "react";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
-import EnquiryModal from "./enquiry-modal";
+import EnquiryModal from "../../components/Modal/enquiry-modal";
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 

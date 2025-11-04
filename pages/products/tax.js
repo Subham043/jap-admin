@@ -13,7 +13,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useCallback } from "react";
-import TaxModal from "./tax-modal";
+import TaxModal from "../../components/Modal/tax-modal";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
 
 export default function User() {

@@ -29,7 +29,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
 import { useCallback } from "react";
-import GalleryModal from "./gallery-modal";
+import GalleryModal from "../../components/Modal/gallery-modal";
 
 // Create new user Modal
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({

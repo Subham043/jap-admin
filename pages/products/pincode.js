@@ -24,7 +24,7 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import { useEffect,useState } from "react";
 import axios from "axios";
-import PincodeModal from "./create-pincode-modal";
+import PincodeModal from "../../components/Modal/create-pincode-modal";
 import { useCallback } from "react";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";

@@ -25,7 +25,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useEffect,useState } from "react";
 import axios from "axios";
 import { useCallback } from "react";
-import GalleryCategoryModal from "./gallery-category-modal";
+import GalleryCategoryModal from "../../components/Modal/gallery-category-modal";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
 // End Create new user Modal

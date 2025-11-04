@@ -34,7 +34,7 @@ import FormControl from "@mui/material/FormControl";
 import Cookies from "js-cookie";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
 import { useCallback } from "react";
-import CategoryModal from "./category-modal";
+import CategoryModal from "../../components/Modal/category-modal";
 
 // Create new user Modal
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({

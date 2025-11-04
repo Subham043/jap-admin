@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import SaveIcon from "@mui/icons-material/Save";
 import axios from 'axios';
 import { useCallback } from "react";
-import DeliveryChargeModal from "./delivery-charge-modal";
+import DeliveryChargeModal from "../../components/Modal/delivery-charge-modal";
 import { useCheckUnauthenticated } from "@/components/Authentication/useCheckUnauthenticated";
 
 
