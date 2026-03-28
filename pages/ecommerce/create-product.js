@@ -61,7 +61,7 @@ const CreateProduct = () => {
       const accessToken = Cookies.get("japAccessToken");
       if (accessToken) {
         const response = await axios.post(
-          "https://server-api.jap.bio/api/v1/product/create",
+          "https://server-api.jap.co.in/api/v1/product/create",
           formData,
           {
             headers: {
@@ -111,7 +111,7 @@ const CreateProduct = () => {
 
       try {
         const response = await axios.get(
-          "https://server-api.jap.bio/api/v1/category/paginate",
+          "https://server-api.jap.co.in/api/v1/category/paginate",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,

@@ -113,7 +113,7 @@ function PincodeDeleteButton({id, fetchPincode}) {
         if (accessToken && id) {
           const pincodeId = id;
           const response = await axios.delete(
-            `https://server-api.jap.bio/api/v1/pincode/delete/${pincodeId}`,
+            `https://server-api.jap.co.in/api/v1/pincode/delete/${pincodeId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -197,7 +197,7 @@ export default function User() {
 
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/pincode/paginate?page=${
+        `https://server-api.jap.co.in/api/v1/pincode/paginate?page=${
           page + 1
         }&total=${rowsPerPage}`,
         {

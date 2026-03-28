@@ -70,8 +70,8 @@ export default function PincodeModal({ handleClose, modal, refetch }) {
       if (accessToken) {
         const response = await axios.post(
           modal.type === "update"
-            ? `https://server-api.jap.bio/api/v1/pincode/update/${modal.data.id}`
-            : "https://server-api.jap.bio/api/v1/pincode/create",
+            ? `https://server-api.jap.co.in/api/v1/pincode/update/${modal.data.id}`
+            : "https://server-api.jap.co.in/api/v1/pincode/create",
           {
             ...form.getValues(),
           },

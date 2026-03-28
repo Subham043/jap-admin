@@ -178,8 +178,8 @@ export default function CategoryModal({ modal, handleClose, refetch }) {
     try {
       const response = await axios.post(
         modal.type === "update"
-          ? `https://server-api.jap.bio/api/v1/category/update/${modal.data.id}`
-          : "https://server-api.jap.bio/api/v1/category/create",
+          ? `https://server-api.jap.co.in/api/v1/category/update/${modal.data.id}`
+          : "https://server-api.jap.co.in/api/v1/category/create",
         formData,
         {
           headers: {

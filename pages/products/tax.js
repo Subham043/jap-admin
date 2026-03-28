@@ -34,7 +34,7 @@ export default function User() {
       const accessToken = localStorage.getItem('accessToken'); // Get the authentication token from local storage
 
       // Make the API call to fetch the tax details
-      const response = await axios.get('https://server-api.jap.bio/api/v1/tax', {
+      const response = await axios.get('https://server-api.jap.co.in/api/v1/tax', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },

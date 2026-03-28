@@ -201,7 +201,7 @@ const handleSubmit = async (event) => {
   try{ 
   const accessToken = localStorage.getItem('accessToken');
     const response = await axios.post(
-      'https://server-api.jap.bio/api/v1/product/excel/upload',
+      'https://server-api.jap.co.in/api/v1/product/excel/upload',
       formData,
       {
         headers: {

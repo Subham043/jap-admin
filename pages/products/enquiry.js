@@ -112,7 +112,7 @@ function EnquiryDeleteButton({ id, fetchEnquiries }) {
         if (accessToken && id) {
           const enquiryId = id;
           const response = await axios.delete(
-            `https://server-api.jap.bio/api/v1/enquiry/delete/${enquiryId}`,
+            `https://server-api.jap.co.in/api/v1/enquiry/delete/${enquiryId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -189,7 +189,7 @@ export default function User() {
     const accessToken = Cookies.get("japAccessToken");
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/enquiry/paginate?page=${page+1}&total=${rowsPerPage}`,
+        `https://server-api.jap.co.in/api/v1/enquiry/paginate?page=${page+1}&total=${rowsPerPage}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

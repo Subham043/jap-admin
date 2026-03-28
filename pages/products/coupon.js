@@ -114,7 +114,7 @@ function CouponDeleteButton({ id, fetchCoupons }) {
         if (accessToken && id) {
           const couponId = id;
           const response = await axios.delete(
-            `https://server-api.jap.bio/api/v1/coupon/delete/${couponId}`,
+            `https://server-api.jap.co.in/api/v1/coupon/delete/${couponId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -184,7 +184,7 @@ export default function User() {
 
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/coupon/paginate?page=${
+        `https://server-api.jap.co.in/api/v1/coupon/paginate?page=${
           page + 1
         }&total=${rowsPerPage}`,
         {

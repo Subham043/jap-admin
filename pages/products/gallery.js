@@ -123,7 +123,7 @@ function GalleryDeleteButton({ id, fetchGallery }) {
         if (accessToken && id) {
           const galleryId = id;
           const response = await axios.delete(
-            `https://server-api.jap.bio/api/v1/gallery/delete/${galleryId}`,
+            `https://server-api.jap.co.in/api/v1/gallery/delete/${galleryId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -192,7 +192,7 @@ export default function User() {
     const accessToken = Cookies.get("japAccessToken");
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/gallery/paginate?page=${
+        `https://server-api.jap.co.in/api/v1/gallery/paginate?page=${
           page + 1
         }&total=${rowsPerPage}`,
         {

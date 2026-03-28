@@ -107,7 +107,7 @@ export default function Products() {
 
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/product/paginate?page=${
+        `https://server-api.jap.co.in/api/v1/product/paginate?page=${
           page + 1
         }&total=${rowsPerPage}`,
         {

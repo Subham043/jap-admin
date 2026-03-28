@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 const isTokenValid = async (token) => {
   try {
-    const response = await fetch("https://server-api.jap.bio/api/v1/profile", {
+    const response = await fetch("https://server-api.jap.co.in/api/v1/profile", {
       headers: { Authorization: `Bearer ${token}` },
       cache: "no-store",
     });

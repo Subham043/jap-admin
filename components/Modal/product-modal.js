@@ -269,8 +269,8 @@ export default function ProductModal({ modal, handleClose, refetch }) {
     try {
       const response = await axios.post(
         modal.type === "update"
-          ? `https://server-api.jap.bio/api/v1/product/update/${modal.data.id}`
-          : "https://server-api.jap.bio/api/v1/product/create",
+          ? `https://server-api.jap.co.in/api/v1/product/update/${modal.data.id}`
+          : "https://server-api.jap.co.in/api/v1/product/create",
         formData,
         {
           headers: {
@@ -310,7 +310,7 @@ export default function ProductModal({ modal, handleClose, refetch }) {
     try {
       const accessToken = Cookies.get("japAccessToken"); // Get access token from local storage or wherever it is stored
       const response = await axios.get(
-        "https://server-api.jap.bio/api/v1/category/paginate?page=1&total=50",
+        "https://server-api.jap.co.in/api/v1/category/paginate?page=1&total=50",
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

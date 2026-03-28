@@ -74,7 +74,7 @@ export default function DeliveryChargeModal({ handleClose, modal, refetch }) {
       const accessToken = Cookies.get("japAccessToken");
       if (accessToken) {
         const response = await axios.post(
-          "https://server-api.jap.bio/api/v1/delivery-charge",
+          "https://server-api.jap.co.in/api/v1/delivery-charge",
           {
             ...form.getValues(),
           },

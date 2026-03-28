@@ -51,7 +51,7 @@ const SignInForm = () => {
     setSuccessMsg(null);
     setErrorMsg(null);
     try {
-      const response = await axios.post('https://server-api.jap.bio/api/v1/auth/login', {
+      const response = await axios.post('https://server-api.jap.co.in/api/v1/auth/login', {
         ...form.getValues()
       });
   

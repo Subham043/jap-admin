@@ -34,7 +34,7 @@ export default function User() {
     try {
       const accessToken = localStorage.getItem('accessToken'); // Get the authentication token from local storage
 
-      const response = await axios.get('https://server-api.jap.bio/api/v1/delivery-charge',
+      const response = await axios.get('https://server-api.jap.co.in/api/v1/delivery-charge',
       {
         headers: {
           Authorization: `Bearer ${accessToken}`,

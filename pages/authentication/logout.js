@@ -29,7 +29,7 @@ export default function Logout() {
 
       if (accessToken) {
         const response = await axios.post(
-          "https://server-api.jap.bio/api/v1/auth/logout",
+          "https://server-api.jap.co.in/api/v1/auth/logout",
           {},
           {
             headers: {

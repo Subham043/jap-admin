@@ -151,8 +151,8 @@ export default function GalleryModal({ modal, handleClose, refetch }) {
     try {
       const response = await axios.post(
         modal.type === "update"
-          ? `https://server-api.jap.bio/api/v1/gallery/update/${modal.data.id}`
-          : "https://server-api.jap.bio/api/v1/gallery/create",
+          ? `https://server-api.jap.co.in/api/v1/gallery/update/${modal.data.id}`
+          : "https://server-api.jap.co.in/api/v1/gallery/create",
         formData,
         {
           headers: {
@@ -192,7 +192,7 @@ export default function GalleryModal({ modal, handleClose, refetch }) {
     try {
       const accessToken = Cookies.get("japAccessToken"); // Get access token from local storage or wherever it is stored
       const response = await axios.get(
-        "https://server-api.jap.bio/api/v1/gallery-category/paginate?page=1&total=50",
+        "https://server-api.jap.co.in/api/v1/gallery-category/paginate?page=1&total=50",
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

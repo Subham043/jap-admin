@@ -130,7 +130,7 @@ function UserDeleteButton({ id, fetchData }) {
         if (accessToken && id) {
           const userId = id;
           const response = await axios.delete(
-            `https://server-api.jap.bio/api/v1/user/delete/${userId}`,
+            `https://server-api.jap.co.in/api/v1/user/delete/${userId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -202,7 +202,7 @@ export default function User() {
     const accessToken = Cookies.get("japAccessToken");
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/user/paginate?page=${
+        `https://server-api.jap.co.in/api/v1/user/paginate?page=${
           page + 1
         }&total=${rowsPerPage}`,
         {

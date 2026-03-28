@@ -128,7 +128,7 @@ function CategoryDeleteButton({ id, fetchCategories }) {
         if (accessToken && id) {
           const categoryId = id;
           const response = await axios.delete(
-            `https://server-api.jap.bio/api/v1/category/delete/${categoryId}`,
+            `https://server-api.jap.co.in/api/v1/category/delete/${categoryId}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -204,7 +204,7 @@ export default function User() {
 
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/category/paginate?page=${page + 1}&total=${rowsPerPage}`,
+        `https://server-api.jap.co.in/api/v1/category/paginate?page=${page + 1}&total=${rowsPerPage}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,

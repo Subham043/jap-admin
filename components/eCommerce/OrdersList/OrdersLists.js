@@ -103,7 +103,7 @@ const OrdersLists = () => {
     try {
       const accessToken = Cookies.get("japAccessToken");
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/order/paginate?page=${
+        `https://server-api.jap.co.in/api/v1/order/paginate?page=${
           page + 1
         }&total=${rowsPerPage}`,
         {

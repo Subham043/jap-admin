@@ -24,7 +24,7 @@ const ProductDetailsContent = () => {
     const fetchProductDetails = async () => {
       try {
         const response = await axios.get(
-          "https://server-api.jap.bio/api/v1/product/detail/${product.id}",
+          "https://server-api.jap.co.in/api/v1/product/detail/${product.id}",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`, // Replace with your access token variable

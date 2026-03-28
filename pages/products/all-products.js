@@ -194,7 +194,7 @@ export default function Products() {
 
       try {
         const response = await axios.get(
-          "https://server-api.jap.bio/api/v1/category/paginate",
+          "https://server-api.jap.co.in/api/v1/category/paginate",
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -230,7 +230,7 @@ export default function Products() {
 
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/product/paginate?page=${page + 1}`,
+        `https://server-api.jap.co.in/api/v1/product/paginate?page=${page + 1}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`, // Replace with your access token variable

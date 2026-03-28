@@ -62,8 +62,8 @@ export default function GalleryCategoryModal({ handleClose, modal, refetch }) {
       if (accessToken) {
         const response = await axios.post(
           modal.type === "update"
-            ? `https://server-api.jap.bio/api/v1/gallery-category/update/${modal.data.id}`
-            : "https://server-api.jap.bio/api/v1/gallery-category/create",
+            ? `https://server-api.jap.co.in/api/v1/gallery-category/update/${modal.data.id}`
+            : "https://server-api.jap.co.in/api/v1/gallery-category/create",
           {
             ...form.getValues(),
           },

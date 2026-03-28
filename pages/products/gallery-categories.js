@@ -111,7 +111,7 @@ function CategoryDeleteButton({ id, fetchGalleryCategories }) {
 
         if (accessToken && id) {
           const response = await axios.delete(
-            `https://server-api.jap.bio/api/v1/gallery-category/delete/${id}`,
+            `https://server-api.jap.co.in/api/v1/gallery-category/delete/${id}`,
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`,
@@ -183,7 +183,7 @@ export default function User() {
 
     try {
       const response = await axios.get(
-        `https://server-api.jap.bio/api/v1/gallery-category/paginate?page=${
+        `https://server-api.jap.co.in/api/v1/gallery-category/paginate?page=${
           page + 1
         }&total=${rowsPerPage}`,
         {

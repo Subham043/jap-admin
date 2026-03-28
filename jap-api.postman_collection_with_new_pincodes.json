@@ -5488,7 +5488,7 @@
 		},
 		{
 			"key": "base_url",
-			"value": "https://server-api.jap.bio",
+			"value": "https://server-api.jap.co.in",
 			"type": "string"
 		}
 	]
